@@ -66,6 +66,14 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 
 		}
 
+		function themeslug_sanitize_dropdown_pages( $page_id, $setting ) {
+			// Ensure $input is an absolute integer.
+			$page_id = absint( $page_id );
+
+			// If $page_id is an ID of a published page, return it; otherwise, return the default.
+			return ( 'publish' == get_post_status( $page_id ) ? $page_id : $setting->default );
+		}
+
 		$wp_customize->add_setting(
 			'understrap_container_type',
 			array(
@@ -127,6 +135,88 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					),
 					'priority'          => apply_filters( 'understrap_sidebar_position_priority', 20 ),
 				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'main_nav_tel_content',
+			array(
+				'default'           => '',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'sanitize_text_field',
+				'capability'        => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'main_nav_tel_content',
+				array(
+					'label'             => __( 'N° de tel nav principale', 'understrap' ),
+					'description'       => __(
+						'N° de téléphone à afficher à droite du menu principal.',
+						'understrap'
+					),
+					'section'           => 'understrap_theme_layout_options',
+					'settings'          => 'main_nav_tel_content',
+					'type'              => 'text',
+					'sanitize_callback' => 'understrap_theme_slug_sanitize_select',
+					'priority'          => apply_filters( 'main_nav_tel_content_priority', 30 ),
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'main_nav_contact_button_content',
+			array(
+				'default'           => '',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'sanitize_text_field',
+				'capability'        => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'main_nav_contact_button_content',
+				array(
+					'label'             => __( 'Libellé du bouton contact', 'understrap' ),
+					'description'       => __(
+						'Texte à afficher dans le bouton à droite du menu.',
+						'understrap'
+					),
+					'section'           => 'understrap_theme_layout_options',
+					'settings'          => 'main_nav_contact_button_content',
+					'type'              => 'text',
+					'sanitize_callback' => 'understrap_theme_slug_sanitize_select',
+					'priority'          => apply_filters( 'main_nav_contact_button_content_priority', 30 ),
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'main_nav_contact_button_url',
+			array(
+				'default'           => '',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'themeslug_sanitize_dropdown_pages',
+				'capability' => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_control(
+			'main_nav_contact_button_url',
+			array(
+				'label' => __( 'Custom Dropdown Pages', 'understrap' ),
+				'type' => 'dropdown-pages',
+				'section' => 'understrap_theme_layout_options',
+				'description'       => __(
+					'page publiée vers laquelle rediriger l\'utilisateur au clic sur le bouton.',
+					'understrap'
+				),
+				'priority' => apply_filters( 'main_nav_contact_button_url_priority', 60 ),
 			)
 		);
 	}

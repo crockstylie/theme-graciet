@@ -46,6 +46,8 @@ if ( ! function_exists( 'understrap_custom_header_setup' ) ) {
 			)
 		);
 
+		add_theme_support('custom-logo');
+
 		register_default_headers(
 			array(
 				'default-image' => array(
