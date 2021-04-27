@@ -1,6 +1,7 @@
 // This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
 
 $secondary: #FBF8EC;
+$beige: #F8F3E1;
 $darkGreen: #02544D;
 $lightGreen: #C9EBDC;
 $green: #029D77;
@@ -73,6 +74,40 @@ body {
 	  background: linear-gradient(90deg, rgba(255,203,59,1) 0%, rgba(255,226,109,1) 100%);
 	  border-radius: 100px;
 	  color: $darkGreen;
+	}
+  }
+}
+
+#wrapper-footer {
+  #social-wrapper {
+	height: 106px;
+	background-color: $secondary;
+	border: 1px solid $beige;
+	display: flex;
+	.container {
+	  display: flex;
+	  #social-bar {
+		display: flex;
+		align-items: center;
+		.social-bar-elements {
+		  display: flex;
+		  align-items: center;
+		  .fa {
+			color: $green;
+		  }
+		  li {
+			margin-right: 14px;
+		  }
+		}
+		#social-bar-title {
+		  font-size: 21px;
+		  font-weight: 900;
+		  color: $darkGreen;
+		}
+		ul {
+		  margin-bottom: 0;
+		}
+	  }
 	}
   }
 }

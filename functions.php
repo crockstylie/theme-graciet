@@ -8,6 +8,9 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+// Load customizer repeater "plugin" : https://github.com/cristian-ungureanu/customizer-repeater
+require get_template_directory() . '/customizer-repeater/functions.php';
+
 // UnderStrap's includes directory.
 $understrap_inc_dir = get_template_directory() . '/inc';
 
