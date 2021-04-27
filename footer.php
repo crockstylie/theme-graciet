@@ -41,9 +41,10 @@ $social_url_repeater_decoded = json_decode($social_url_repeater);
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div><!-- wrapper end -->
+
+<?php get_template_part( 'sidebar-templates/sidebar', 'footercolumn' ); ?>
 
 </div><!-- #page we need this extra closing tag here -->
 

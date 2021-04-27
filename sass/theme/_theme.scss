@@ -79,6 +79,7 @@ body {
 }
 
 #wrapper-footer {
+  padding-bottom: 0;
   #social-wrapper {
 	height: 106px;
 	background-color: $secondary;
@@ -110,4 +111,10 @@ body {
 	  }
 	}
   }
+}
+
+#wrapper-footer-full {
+  background-color: $lightGreen;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }

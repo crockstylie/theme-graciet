@@ -170,5 +170,41 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 			)
 		);
 
+		register_sidebar(
+			array(
+				'name'          => __( 'Footer Left', 'understrap' ),
+				'id'            => 'footerleft',
+				'description'   => __( 'Left column of the footer', 'understrap' ),
+				'before_widget' => '',
+				'after_widget'  => '',
+				'before_title'  => '<h3>',
+				'after_title'   => '</h3>',
+			)
+		);
+
+		register_sidebar(
+			array(
+				'name'          => __( 'Footer Middle', 'understrap' ),
+				'id'            => 'footermiddle',
+				'description'   => __( 'Middle column of the footer', 'understrap' ),
+				'before_widget' => '',
+				'after_widget'  => '',
+				'before_title'  => '<h3>',
+				'after_title'   => '</h3>',
+			)
+		);
+
+		register_sidebar(
+			array(
+				'name'          => __( 'Footer Right', 'understrap' ),
+				'id'            => 'footerright',
+				'description'   => __( 'Right column of the footer', 'understrap' ),
+				'before_widget' => '',
+				'after_widget'  => '',
+				'before_title'  => '<h3>',
+				'after_title'   => '</h3>',
+			)
+		);
+
 	}
 } // End of function_exists( 'understrap_widgets_init' ).
